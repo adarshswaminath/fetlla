@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { batchDetils } from "../../constants";
-
+import {AiOutlinePlus} from "react-icons/ai"
+import {Link} from "react-router-dom"
 const Card = ({ props }) => {
   const { name, mentor, isCompleted, totalStudents, income } = props;
   return (
@@ -31,13 +32,18 @@ function Batches() {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="p-3">
-      <div className="flex items-center justify-center m-3">
+      <div className="flex gap-2 items-center justify-between m-3">
         <input
           type="text"
           placeholder="Type Batch Name..."
           onChange={(e) => setSearchTerm(e.target.value)}
           className="input bg-gray-300"
         />
+        <Link to="/create">
+        <button className="btn bg-green-500 text-white font-semibold">
+        <AiOutlinePlus/>
+        </button>
+        </Link>
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {batchDetils
