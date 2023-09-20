@@ -34,7 +34,7 @@ function Batches() {
       <div className="flex items-center justify-center m-3">
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Type Batch Name..."
           onChange={(e) => setSearchTerm(e.target.value)}
           className="input bg-gray-300"
         />
