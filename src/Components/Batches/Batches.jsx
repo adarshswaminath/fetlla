@@ -32,18 +32,18 @@ function Batches() {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="p-3">
-      <div className="flex gap-2 items-center justify-between m-3">
+      <div className="flex gap-2 items-center mb-3">
+         <Link to="/create">
+        <button className="btn rounded-full bg-green-500 text-white hover:bg-green-400 font-semibold">
+        <AiOutlinePlus/>
+        </button>
+        </Link>
         <input
           type="text"
           placeholder="Type Batch Name..."
           onChange={(e) => setSearchTerm(e.target.value)}
           className="input bg-gray-300"
         />
-        <Link to="/create">
-        <button className="btn bg-green-500 text-white font-semibold">
-        <AiOutlinePlus/>
-        </button>
-        </Link>
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {batchDetils
