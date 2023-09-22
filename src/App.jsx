@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { GrMenu } from "react-icons/gr";
+import {HiMenuAlt2} from "react-icons/hi"
 import { sideBarList } from "./constants";
 import Home from "./Components/Home/Home";
 import Batches from "./Components/Batches/Batches";
@@ -13,20 +14,7 @@ function App() {
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label htmlFor="my-drawer" className="drawer-button">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-8 h-8 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
-                />
-              </svg>
+              <HiMenuAlt2 className="h-8 w-8 text-green-500"/>
             </label>
 
             {/* Page content here */}
@@ -45,7 +33,7 @@ function App() {
                 <h2 className="text-3xl font-semibold">Fetla Community</h2>
               </li>
               {sideBarList.map((value) => (
-                <li className="mt-8 hover:bg-green-500 rounded-lg text-xl">
+                <li className="mt-8 hover:bg-green-500 rounded-lg text-xl" key={value.title}>
                   <Link to={value.path}>{value.title}</Link>
                 </li>
               ))}
