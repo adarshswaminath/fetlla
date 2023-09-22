@@ -6,6 +6,7 @@ import Home from "./Components/Home/Home";
 import Batches from "./Components/Batches/Batches";
 import Create from "./Components/Create/Create";
 import Mentors from "./Components/Mentors/Mentors";
+import Details from "./Components/Batches/Details"
 function App() {
   return (
     <div className="p-2 bg-gray-100 min-h-screen">
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="/batches" element={<Batches />}></Route>
               <Route exact path="/create" element={<Create />}></Route>
               <Route exact path="/mentors" element={<Mentors />}></Route>
+              <Route exact path="/details" element={<Details/>}></Route>
             </Routes>
           </div>
           <div className="drawer-side">
