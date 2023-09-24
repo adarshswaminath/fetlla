@@ -93,6 +93,69 @@ export const batchDetils = [
     isCompleted: false,
     totalStudents: 12,
     income: 1100,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B3",
@@ -100,6 +163,69 @@ export const batchDetils = [
     isCompleted: true,
     totalStudents: 20,
     income: 1300,
+    students:[
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B4",
@@ -107,6 +233,69 @@ export const batchDetils = [
     isCompleted: true,
     totalStudents: 18,
     income: 1250,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B5",
@@ -114,6 +303,69 @@ export const batchDetils = [
     isCompleted: false,
     totalStudents: 16,
     income: 1050,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B6",
@@ -121,6 +373,69 @@ export const batchDetils = [
     isCompleted: true,
     totalStudents: 22,
     income: 1350,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B7",
@@ -128,6 +443,69 @@ export const batchDetils = [
     isCompleted: false,
     totalStudents: 20,
     income: 1000,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B8",
@@ -135,6 +513,69 @@ export const batchDetils = [
     isCompleted: true,
     totalStudents: 21,
     income: 1400,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
   {
     name: "B9",
@@ -142,6 +583,69 @@ export const batchDetils = [
     isCompleted: false,
     totalStudents: 19,
     income: 1150,
+    students: [
+      {
+        name: 'Student1',
+        batch: 'B1',
+        fee: 640,
+        contactNumber: '+918219516476'
+      },
+      {
+        name: 'Student2',
+        batch: 'B2',
+        fee: 487,
+        contactNumber: '+919689430857'
+      },
+      {
+        name: 'Student3',
+        batch: 'B3',
+        fee: 389,
+        contactNumber: '+919014302471'
+      },
+      {
+        name: 'Student4',
+        batch: 'B4',
+        fee: 935,
+        contactNumber: '+919875031125'
+      },
+      {
+        name: 'Student5',
+        batch: 'B5',
+        fee: 927,
+        contactNumber: '+919019160218'
+      },
+      {
+        name: 'Student6',
+        batch: 'B6',
+        fee: 184,
+        contactNumber: '+918905791197'
+      },
+      {
+        name: 'Student7',
+        batch: 'B7',
+        fee: 295,
+        contactNumber: '+918929815856'
+      },
+      {
+        name: 'Student8',
+        batch: 'B8',
+        fee: 34,
+        contactNumber: '+919486280868'
+      },
+      {
+        name: 'Student9',
+        batch: 'B9',
+        fee: 764,
+        contactNumber: '+918689546316'
+      },
+      {
+        name: 'Student10',
+        batch: 'B10',
+        fee: 933,
+        contactNumber: '+919226047712'
+      }
+    ]
+    
   },
 ];
 

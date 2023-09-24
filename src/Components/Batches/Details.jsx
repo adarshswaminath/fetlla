@@ -20,7 +20,14 @@ const StudentDetils = ({ props }) => {
 // @dev section to display about the batch
 const Box = ({ props }) => {
   const { name, mentor, isCompleted, totalStudents, income, students } = props;
-  console.log(students);
+   // if there is no students
+   if(!Array.isArray(students) || students.length === 0) {
+    return(
+      <div>
+        No Data found
+      </div>
+    )
+  }
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg p-6 mx-auto my-4 w-72">
@@ -52,7 +59,9 @@ const Box = ({ props }) => {
 function Details() {
   const location = useLocation();
   const name = location.state;
+  console.log("Name of : ",name)
   const batch = batchDetils.find((value) => value.name === name)
+  console.log("Batch ",batch)
   if(!batch){
     return <div>No matching batch found.</div>
   }
@@ -60,7 +69,7 @@ function Details() {
     <div className="p-3">
       <Box props={batch}/>
     </div>
-  );batches
+  )
 }
 
 export default Details;
