@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { batchDetils } from "../../constants";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link ,useNavigate} from "react-router-dom";
 
-const Card = ({ props }) => {
-  const { name, mentor, isCompleted, totalStudents, income } = props;
+const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
   // pass data from here to details
   const navigate = useNavigate()
   // send the clicked batch name to details
@@ -58,13 +56,13 @@ function Batches() {
         />
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {batchDetils
-          .filter((value) =>
-            value.name.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .map((value) => (
-            <Card key={value.name} props={value} />
-          ))}
+            <Card
+              name="B1"
+              mentor="Mentor name"
+              totalStudents={10}
+              isCompleted={false}
+              income={1200}
+            />
       </div>
     </div>
   );

@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom";
 import { batchDetils } from "../../constants";
 
 // @dev display the student detils section
-const StudentDetils = ({ props }) => {
-  const { name, batch, fee, contactNumber } = props;
+const StudentDetils = ({ name, batch, fee, contactNumber }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-4 mt-4">
       <h1 className="text-xl font-semibold mb-2">{name}</h1>
@@ -18,16 +17,9 @@ const StudentDetils = ({ props }) => {
 };
 
 // @dev section to display about the batch
-const Box = ({ props }) => {
-  const { name, mentor, isCompleted, totalStudents, income, students } = props;
-   // if there is no students
-   if(!Array.isArray(students) || students.length === 0) {
-    return(
-      <div>
-        No Data found
-      </div>
-    )
-  }
+const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
+
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg p-6 mx-auto my-4 w-72">
@@ -48,26 +40,29 @@ const Box = ({ props }) => {
         Student detils
       </h3>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {students.map((student) => (
-          <StudentDetils key={student.contactNumber} props={student} />
-        ))}
+          {/* display the student detils */}
+          <StudentDetils
+            name="Student Name"
+            batch="B1"
+            fee={1000}
+            contactNumber={1234567890}
+           />
       </div>
     </div>
   );
 };
 // @dev main component
 function Details() {
-  const location = useLocation();
-  const name = location.state;
-  console.log("Name of : ",name)
-  const batch = batchDetils.find((value) => value.name === name)
-  console.log("Batch ",batch)
-  if(!batch){
-    return <div>No matching batch found.</div>
-  }
+
   return (
     <div className="p-3">
-      <Box props={batch}/>
+      <Box
+      name="B1"
+      mentor="Mentor Nmae" 
+      isCompleted={true}
+      totalStudents={24}
+      income={1222}
+      />
     </div>
   )
 }
