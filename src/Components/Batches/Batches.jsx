@@ -6,6 +6,7 @@ import EditModal from "./EditModal";
 
 // Card component for displaying batch details
 const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
+  const navigate = useNavigate()
   const passClick = () => {
     console.log(name)
     navigate("/details",{state: name})
