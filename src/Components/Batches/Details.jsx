@@ -2,15 +2,18 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { batchDetils } from "../../constants";
 
+/*
+  page display each detils of students 
+
+*/
+
 // @dev display the student detils section
 const StudentDetils = ({ name, batch, fee, contactNumber }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-4 mt-4">
       <h1 className="text-xl font-semibold mb-2">{name}</h1>
-      <div className="flex flex-col md:flex-row justify-between mb-2">
         <p className="text-gray-600">Batch: {batch}</p>
-        <p className="text-gray-600 md:ml-4">Fee: ${fee}</p>
-      </div>
+        <p className="text-gray-600">Fee: ${fee}</p>
       <p className="text-gray-600">Contact Number: {contactNumber}</p>
     </div>
   );
