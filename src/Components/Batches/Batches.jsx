@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlinePlus, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import EditModal from "./EditModal";
-
-
+import axios from 'axios'
+import { getBatchData } from "../../ApiService/api";
 // Card component for displaying batch details
 const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
   const navigate = useNavigate()
   const passClick = () => {
     console.log(name)
-    navigate("/details",{state: name})
+    navigate("/details/",{state: name})
   }
 
   const [isEditing, setIsEditing] = useState(false);
@@ -55,12 +55,15 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
       <div>
         <h3 className="text-xl">Total Income</h3>
         <p className="text-green-500 text-3xl font-bold">${updatedBatch.income}</p>
+        
+        <Link to={`/details/${id}`}>
         <button
           className="px-4 py-1.5 bg-green-500 rounded-lg text-white mt-3"
-          onClick={passClick}
+          
         >
           More Details
         </button>
+        </Link>
       </div>
       {isEditing && (
         <EditModal
@@ -76,11 +79,22 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
 // Batches component for displaying a list of batches
 function Batches() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [batchDetails,setBatchDetails] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getBatchData()
+      setBatchDetails(data)
+    }
+    fetchData()
+  },[]);
+  
+  
 
   return (
     <div className="p-3">
       <div className="flex gap-2 items-center mb-3">
-        <Link to="/create">
+        <Link to={`/details/${id}`}>
           <button className="px-4 py-4 rounded-full bg-green-500 text-white hover:bg-green-500 font-semibold group">
             <AiOutlinePlus className="group-hover:rotate-90 transition ease-in delay-200 duration-100 text-xl" />
           </button>
@@ -93,7 +107,21 @@ function Batches() {
         />
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <Card name="B1" mentor="Mentor name" totalStudents={10} isCompleted={false} income={1200} />
+        {
+          
+          batchDetails.map((batch)=>(
+            <Card 
+              key={batch.id}
+              id={batch.id}
+              name={batch.batch_name}
+              mentor={batch.faculty} 
+              totalStudents={batch.num_students} 
+              isCompleted={false} 
+              income={batch.total_income} 
+            />
+          ))
+        }
+        
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ function App() {
               <Route exact path="/batches" element={<Batches />}></Route>
               <Route exact path="/create" element={<Create />}></Route>
               <Route exact path="/mentors" element={<Mentors />}></Route>
-              <Route exact path="/details" element={<Details/>}></Route>
+              <Route exact path="/details/:id" element={<Details/>}></Route>
             </Routes>
           </div>
           <div className="drawer-side">

@@ -24,9 +24,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Batch API",
+        title="API Docs Fetlla",
         default_version='v1',
-        description="API for managing batches",
+        description="API Datas OF fetlla",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@example.com"),
         license=openapi.License(name="BSD License"),
