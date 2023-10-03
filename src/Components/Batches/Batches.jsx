@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import EditModal from "./EditModal";
-import axios from 'axios'
+
 import { getBatchData } from "../../ApiService/api";
 // Card component for displaying batch details
 const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
