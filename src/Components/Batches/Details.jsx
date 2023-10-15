@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { batchDetils } from "../../constants";
+import { url,headers } from "../Utils";
 
 /*
   page display each detils of students 
@@ -46,7 +47,7 @@ const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
           {/* display the student detils */}
           <StudentDetils
             name="Student Name"
-            batch="B1"
+            batch="B2"
             fee={1000}
             contactNumber={1234567890}
            />
@@ -56,11 +57,10 @@ const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
 };
 // @dev main component
 function Details() {
-
   return (
     <div className="p-3">
       <Box
-      name="B1"
+      name="B2"
       mentor="Mentor Nmae" 
       isCompleted={true}
       totalStudents={24}
