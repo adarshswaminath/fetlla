@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus, AiFillEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import EditModal from "./EditModal";
-import axios from "axios";
 import { headers, url } from "../Utils";
+import apiCaller from "../apiCaller";
 
 
 // Card component for displaying batch details
@@ -78,24 +78,16 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
 // Batches component for displaying a list of batches
 function Batches() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [response,setResponse] = useState(null)
+  const [response,setResponse] = useState([])
   // @function of api call
   useEffect(() => {
-    // function on action
-    const apiCaller = async() => {
-      try {
-        await axios.get(`${url}batch`,{
-          headers:headers
-        }).then(response => {
-          console.log(response.data)
-        })
-       
-      } catch (error) {
-        console.log(error.message)
-      }
+    const funcEffect =  async() => {
+      let apiCall = await apiCaller("batch")
+      setResponse(apiCall)
     }
-    apiCaller()
-  },[])
+    funcEffect()
+  }, []);
+  console.log(response);
   return (
     <div className="p-3">
       <div className="flex gap-2 items-center mb-3">
@@ -112,12 +104,17 @@ function Batches() {
         />
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <Card 
-          name="B2" 
-          mentor="Mentor name" 
-          totalStudents={10} 
-          isCompleted={false} 
-          income={1200} />
+        {
+          response.map((value) => (
+            <Card 
+            key={value.key}
+            name={value.batch_name}
+            mentor={value.faculty}
+            totalStudents={value.num_students} 
+            isCompleted={false} 
+            income={value.total_income} />
+          ))
+          }
       </div>
     </div>
   );
