@@ -5,14 +5,13 @@ import EditModal from "./EditModal";
 import { headers, url } from "../Utils";
 import apiCaller from "../apiCaller";
 
-
 // Card component for displaying batch details
 const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const passClick = () => {
-    console.log(name)
-    navigate("/details",{state: name})
-  }
+    console.log(name);
+    navigate("/details", { state: name });
+  };
 
   const [isEditing, setIsEditing] = useState(false);
   const [updatedBatch, setUpdatedBatch] = useState({
@@ -29,9 +28,9 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
   const handleCloseModal = () => {
     setIsEditing(false);
   };
-    // Function to update batch data and close modal
+  // Function to update batch data and close modal
   const handleUpdateBatch = (updatedData) => {
-    setUpdatedBatch(updatedData);  // Update batch data
+    setUpdatedBatch(updatedData); // Update batch data
     setIsEditing(false); // Close the modal
   };
 
@@ -42,7 +41,11 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
         <p className="text-gray-500">Mentor: {mentor}</p>
         <p className="text-gray-500">Students: {totalStudents}</p>
         <div className="flex items-center space-x-5">
-          <p className={`text-${isCompleted ? "green" : "red"}-500 font-semibold`}>
+          <p
+            className={`text-${
+              isCompleted ? "green" : "red"
+            }-500 font-semibold`}
+          >
             {isCompleted ? (
               <span className="text-green-500">Completed</span>
             ) : (
@@ -56,7 +59,9 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
       </div>
       <div>
         <h3 className="text-xl">Total Income</h3>
-        <p className="text-green-500 text-3xl font-bold">${updatedBatch.income}</p>
+        <p className="text-green-500 text-3xl font-bold">
+          ${updatedBatch.income}
+        </p>
         <button
           className="px-4 py-1.5 bg-green-500 rounded-lg text-white mt-3"
           onClick={passClick}
@@ -78,14 +83,14 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
 // Batches component for displaying a list of batches
 function Batches() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [response,setResponse] = useState([])
+  const [response, setResponse] = useState([]);
   // @function of api call
   useEffect(() => {
-    const funcEffect =  async() => {
-      let apiCall = await apiCaller("batch")
-      setResponse(apiCall)
-    }
-    funcEffect()
+    const funcEffect = async () => {
+      let apiCall = await apiCaller("batch");
+      setResponse(apiCall);
+    };
+    funcEffect();
   }, []);
   console.log(response);
   return (
@@ -104,17 +109,17 @@ function Batches() {
         />
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {
-          response.map((value) => (
-            <Card 
-            key={value.key}
-            name={value.batch_name}
-            mentor={value.faculty}
-            totalStudents={value.num_students} 
-            isCompleted={false} 
-            income={value.total_income} />
-          ))
-          }
+        {response.map((value) => (
+          <div key={value.key}>
+            <Card
+              name={value.batch_name}
+              mentor={value.faculty}
+              totalStudents={value.num_students}
+              isCompleted={false}
+              income={value.total_income}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
