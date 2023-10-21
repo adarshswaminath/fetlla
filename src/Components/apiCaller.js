@@ -1,10 +1,10 @@
 const apiCaller = async (url,method) => {
     try {
-      const res = await fetch(`https://munavirt.pythonanywhere.com/${url}/`, {
+      const res = await fetch(`https://fetlla.pythonanywhere.com/${url}/`, {
         method: method,
         headers: {
           'accept': 'application/json',
-          'X-CSRFToken': 'G0OyBeaUJWJhJnW1A3oZfxIfNNURkX7m2SPOwgfWJMrYcRzOoCX5LSd3Y418dsso',
+          'X-CSRFToken': 'AQDU2r7t9GDPPPMBrsTmJlXE9f2Fcx462Gmv3k0n4OYU0fkvbSlDE1g5k1dlax8T',
         },
       })
       if (!res.ok) {
