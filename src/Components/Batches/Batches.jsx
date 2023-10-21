@@ -87,7 +87,7 @@ function Batches() {
   // @function of api call
   useEffect(() => {
     const funcEffect = async () => {
-      let apiCall = await apiCaller("batch");
+      let apiCall = await apiCaller("batch","GET");
       setResponse(apiCall);
     };
     funcEffect();
