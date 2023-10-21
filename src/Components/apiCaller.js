@@ -2,6 +2,7 @@ const apiCaller = async (url) => {
     try {
       const res = await fetch(`https://munavirt.pythonanywhere.com/${url}/`, {
         method: 'GET',
+        mode: "no-cors",
         headers: {
           'accept': 'application/json',
           'X-CSRFToken': 'G0OyBeaUJWJhJnW1A3oZfxIfNNURkX7m2SPOwgfWJMrYcRzOoCX5LSd3Y418dsso',
