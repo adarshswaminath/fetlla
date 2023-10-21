@@ -1,6 +1,6 @@
 const apiCaller = async (url) => {
     try {
-      const res = await fetch(`http://munavirt.pythonanywhere.com/${url}/`, {
+      const res = await fetch(`https://munavirt.pythonanywhere.com/${url}/`, {
         method: 'GET',
         headers: {
           'accept': 'application/json',
