@@ -6,17 +6,23 @@ import { headers, url } from "../Utils";
 import apiCaller from "../apiCaller";
 
 // Card component for displaying batch details
-const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
+const Card = ({ name, mentor, totalStudents, income }) => {
   const navigate = useNavigate();
   const passClick = () => {
-    navigate("/details", { state: {name:name} });
+    navigate("/details", { 
+      state: { 
+        name:name,
+        mentor:mentor,
+        totalStudents:totalStudents,
+        income: income
+      } 
+    });
   };
 
   const [isEditing, setIsEditing] = useState(false);
   const [updatedBatch, setUpdatedBatch] = useState({
     mentor,
     totalStudents,
-    isCompleted,
     income,
   });
   // Function to handle edit button click
@@ -40,7 +46,7 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
         <p className="text-gray-500">Mentor: {mentor}</p>
         <p className="text-gray-500">Students: {totalStudents}</p>
         <div className="flex items-center space-x-5">
-          <p
+          {/* <p
             className={`text-${
               isCompleted ? "green" : "red"
             }-500 font-semibold`}
@@ -50,7 +56,7 @@ const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
             ) : (
               <span className="text-red-500">Not Completed</span>
             )}
-          </p>
+          </p> */}
           <button onClick={handleEditClick}>
             <AiFillEdit className="text-2xl text-green-500" />
           </button>
@@ -108,12 +114,11 @@ function Batches() {
       </div>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {response.map((value) => (
-          <div key={value.key}>
+          <div key={value.id}>
             <Card
               name={value.batch_name}
               mentor={value.faculty}
               totalStudents={value.num_students}
-              isCompleted={false}
               income={value.total_income}
             />
           </div>

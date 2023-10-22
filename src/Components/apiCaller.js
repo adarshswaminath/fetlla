@@ -4,7 +4,7 @@ const apiCaller = async (url,method) => {
         method: method,
         headers: {
           'accept': 'application/json',
-          'X-CSRFToken': 'AQDU2r7t9GDPPPMBrsTmJlXE9f2Fcx462Gmv3k0n4OYU0fkvbSlDE1g5k1dlax8T',
+          'X-CSRFToken': 'qw9bLNRmxdAwYnWo53TtQxnBLbJsDWqVSmSMMGKgslVB9NuiPtlKLdG2WXU8BWuI',
         },
       })
       if (!res.ok) {

@@ -21,7 +21,7 @@ const StudentDetils = ({ name, batch, fee, contactNumber }) => {
 };
 
 // @dev section to display about the batch
-const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
+const BatchDetils = ({ name, mentor, isCompleted, totalStudents, income}) => {
 
 
   return (
@@ -29,13 +29,13 @@ const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
       <div className="bg-white rounded-lg shadow-lg p-6 mx-auto my-4 w-72">
         <p className="text-2xl font-bold">Name: {name}</p>
         <p className="mt-2 text-gray-600">Mentor: {mentor}</p>
-        <p className="mt-2">
+        {/* <p className="mt-2">
           {isCompleted ? (
             <span className="text-green-500 font-bold">Completed</span>
           ) : (
             <span className="text-red-500 font-bold">Not Completed</span>
           )}
-        </p>
+        </p> */}
         <p className="mt-2 text-gray-600">Total Students: {totalStudents}</p>
         <p className="mt-2 text-gray-600">Total Income: {income}</p>
       </div>
@@ -60,12 +60,12 @@ function Details() {
   const {state} = useLocation()
   return (
     <div className="p-3">
-      <Box
+      <BatchDetils
       name={state.name}
-      mentor="Mentor Nmae" 
-      isCompleted={true}
-      totalStudents={24}
-      income={1222}
+      mentor={state.mentor} 
+      // isCompleted={true}
+      totalStudents={state.totalStudents}
+      income={state.income}
       />
     </div>
   )

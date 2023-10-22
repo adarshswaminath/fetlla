@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Create() {
   // Define state variables to store form input values
+  // state for track click or not the button
+  const [isSubmit,setIsSubmit] = useState(true)
   // @dev refference
+  const navigate = useNavigate()
   const formValues = {
     batch_name: "",
     faculty: "",
@@ -19,6 +23,7 @@ function Create() {
   // function for submit form POST request
   const handleSubmitForm = async () => {
     try {
+      setIsSubmit(!isSubmit)
       const response = await axios.post('https://fetlla.pythonanywhere.com/batch/', formData, {
         headers: {
           'accept': 'application/json',
@@ -26,6 +31,7 @@ function Create() {
         }
       });
       console.log(response);
+      navigate("/batches")
     } catch (error) {
       console.error(error);
     }
@@ -99,10 +105,10 @@ function Create() {
           </div>
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
+            className={`${isSubmit ? "bg-green-500" : "bg-green-300"} w-full text-white py-2 px-4 rounded-lg hover:bg-green-600`}
             onClick={handleSubmitForm}
           >
-            Create
+            {isSubmit ? "Create" : "Creating...."}
           </button>
         </div>
       </div>
