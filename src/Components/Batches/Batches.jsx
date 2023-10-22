@@ -7,6 +7,7 @@ import apiCaller from "../apiCaller";
 
 // Card component for displaying batch details
 const Card = ({id, name, mentor, totalStudents, income }) => {
+  const detils = {id, name, mentor, totalStudents, income }
   const navigate = useNavigate();
   const passClick = () => {
     navigate("/details", { 
@@ -66,6 +67,7 @@ const Card = ({id, name, mentor, totalStudents, income }) => {
       </div>
       {isEditing && (
         <EditModal
+          id={id}
           batchName={name}
           onClose={handleCloseModal}
           onUpdate={handleUpdateBatch}

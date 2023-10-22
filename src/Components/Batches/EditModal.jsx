@@ -7,7 +7,8 @@ import React, { useState } from "react";
  * @param {function} props.onClose - Callback function to close the modal.
  * @param {function} props.onUpdate - Callback function to update batch data.
  */
-const EditModal = ({ batchName, onClose, onUpdate }) => {
+const EditModal = ({id, batchName, onClose, onUpdate }) => {
+  console.log(id);
     // State for form input fields
   const [newMentor, setNewMentor] = useState("");
   const [newTotalStudents, setNewTotalStudents] = useState("");
@@ -25,6 +26,7 @@ const EditModal = ({ batchName, onClose, onUpdate }) => {
       isCompleted: newIsCompleted,
       income: newIncome,
     };
+    console.log(updatedBatch);
 
     onUpdate(updatedBatch); // Call the onUpdate function to update batch data
     onClose(); // Close the modal
