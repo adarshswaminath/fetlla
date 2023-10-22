@@ -6,11 +6,12 @@ import { headers, url } from "../Utils";
 import apiCaller from "../apiCaller";
 
 // Card component for displaying batch details
-const Card = ({ name, mentor, totalStudents, income }) => {
+const Card = ({id, name, mentor, totalStudents, income }) => {
   const navigate = useNavigate();
   const passClick = () => {
     navigate("/details", { 
       state: { 
+        id:id,
         name:name,
         mentor:mentor,
         totalStudents:totalStudents,
@@ -116,6 +117,7 @@ function Batches() {
         {response.map((value) => (
           <div key={value.id}>
             <Card
+              id={value.id}
               name={value.batch_name}
               mentor={value.faculty}
               totalStudents={value.num_students}
