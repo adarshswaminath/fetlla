@@ -57,10 +57,11 @@ const Box = ({ name, mentor, isCompleted, totalStudents, income}) => {
 };
 // @dev main component
 function Details() {
+  const {state} = useLocation()
   return (
     <div className="p-3">
       <Box
-      name="B2"
+      name={state.name}
       mentor="Mentor Nmae" 
       isCompleted={true}
       totalStudents={24}

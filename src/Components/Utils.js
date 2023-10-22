@@ -1,7 +1,7 @@
-const url = 'http://munavirt.pythonanywhere.com/';
+const url = 'https://fetlla.pythonanywhere.com';
 const headers = {
     'accept': 'application/json',
-    'X-CSRFToken': 'Vbitz8qeBU3SD6DT89jpbEvhjR6VOZ5mh3jJuavgBKLz6AgGWISvHZ05u8dcHuqo'
-};
+    'X-CSRFToken': 'AQDU2r7t9GDPPPMBrsTmJlXE9f2Fcx462Gmv3k0n4OYU0fkvbSlDE1g5k1dlax8T',
+  }
 
 export {url,headers}

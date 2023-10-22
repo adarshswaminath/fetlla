@@ -9,8 +9,7 @@ import apiCaller from "../apiCaller";
 const Card = ({ name, mentor, isCompleted, totalStudents, income }) => {
   const navigate = useNavigate();
   const passClick = () => {
-    console.log(name);
-    navigate("/details", { state: name });
+    navigate("/details", { state: {name:name} });
   };
 
   const [isEditing, setIsEditing] = useState(false);
@@ -92,7 +91,6 @@ function Batches() {
     };
     funcEffect();
   }, []);
-  console.log(response);
   return (
     <div className="p-3">
       <div className="flex gap-2 items-center mb-3">

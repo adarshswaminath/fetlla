@@ -2,7 +2,6 @@
   "name": "fetlla-dasboard",
   "private": true,
   "version": "0.0.0",
-  "proxy": "https://munavirt.pythonanywhere.com",
   "type": "module",
   "scripts": {
     "dev": "vite",

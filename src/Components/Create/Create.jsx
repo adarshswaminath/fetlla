@@ -1,13 +1,14 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function Create() {
   // Define state variables to store form input values
   // @dev refference
   const formValues = {
-    batchName: "",
-    mentorName: "",
-    totalIncome: 0,
-    numOfstudents: 0,
+    batch_name: "",
+    faculty: "",
+    total_income: 0,
+    total_expense: 0,
   }
   // @dev formData is obj collect userinput
   const [formData,setFormData] = useState(formValues)
@@ -15,6 +16,21 @@ function Create() {
   const handleChange = (e) => {
     setFormData({...formData,[e.target.name]: e.target.value });
   }
+  // function for submit form POST request
+  const handleSubmitForm = async () => {
+    try {
+      const response = await axios.post('https://fetlla.pythonanywhere.com/batch/', formData, {
+        headers: {
+          'accept': 'application/json',
+          'X-CSRFToken': 'qw9bLNRmxdAwYnWo53TtQxnBLbJsDWqVSmSMMGKgslVB9NuiPtlKLdG2WXU8BWuI',
+        }
+      });
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
 
   return (
     <div className="p-3">
@@ -28,11 +44,11 @@ function Create() {
             </label>
             <input
               type="text"
-              id="batchName"
-              name="batchName"
+              id="batch_name"
+              name="batch_name"
               placeholder="Enter Batch Name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              value={formData.batchName}
+              value={formData.batch_name}
               onChange={handleChange}
             />
           </div>
@@ -43,11 +59,11 @@ function Create() {
             </label>
             <input
               type="text"
-              id="mentorName"
-              name="mentorName"
+              id="faculty"
+              name="faculty"
               placeholder="Enter Mentor Name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              value={formData.mentorName}
+              value={formData.faculty}
               onChange={handleChange}
             />
           </div>
@@ -58,25 +74,25 @@ function Create() {
               </label>
               <input
                 type="text"
-                id="totalIncome"
-                name="totalIncome"
+                id="total_income"
+                name="total_income"
                 placeholder="Enter Total Income"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                value={formData.totalIncome}
+                value={formData.total_income}
                 onChange={handleChange}
               />
             </div>
             <div className="mb-4">
               <label htmlFor="numOfstudents" className="block text-gray-700">
-                Number of Students
+                Total Expense
               </label>
               <input
                 type="text"
-                id="numOfstudents"
-                name="numOfstudents"
+                id="total_expense"
+                name="total_expense"
                 placeholder="No.of of Students"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                value={formData.numOfstudents}
+                value={formData.total_expense}
                 onChange={handleChange}
               />
             </div>
@@ -84,7 +100,7 @@ function Create() {
           <button
             type="submit"
             className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
-            onClick={(e) => console.log(formData) }
+            onClick={handleSubmitForm}
           >
             Create
           </button>
