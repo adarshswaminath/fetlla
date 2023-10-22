@@ -47,17 +47,6 @@ const Card = ({id, name, mentor, totalStudents, income }) => {
         <p className="text-gray-500">Mentor: {mentor}</p>
         <p className="text-gray-500">Students: {totalStudents}</p>
         <div className="flex items-center space-x-5">
-          {/* <p
-            className={`text-${
-              isCompleted ? "green" : "red"
-            }-500 font-semibold`}
-          >
-            {isCompleted ? (
-              <span className="text-green-500">Completed</span>
-            ) : (
-              <span className="text-red-500">Not Completed</span>
-            )}
-          </p> */}
           <button onClick={handleEditClick}>
             <AiFillEdit className="text-2xl text-green-500" />
           </button>

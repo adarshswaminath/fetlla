@@ -51,13 +51,7 @@ const BatchDetils = ({ id,name, mentor, totalStudents, income }) => {
           </button>
         </div>
         <p className="mt-2 text-gray-600">Mentor: {mentor}</p>
-        {/* <p className="mt-2">
-          {isCompleted ? (
-            <span className="text-green-500 font-bold">Completed</span>
-          ) : (
-            <span className="text-red-500 font-bold">Not Completed</span>
-          )}
-        </p> */}
+        
         <p className="mt-2 text-gray-600">Total Students: {totalStudents}</p>
         <p className="mt-2 text-gray-600">Total Income: {income}</p>
       </div>
@@ -86,7 +80,6 @@ function Details() {
         id={state.id}
         name={state.name}
         mentor={state.mentor}
-        // isCompleted={true}
         totalStudents={state.totalStudents}
         income={state.income}
       />
