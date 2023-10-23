@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { batchDetils } from "../../constants";
 import { headers } from "../Utils";
@@ -70,6 +70,23 @@ const BatchDetils = ({ id,name, mentor, totalStudents, income }) => {
 };
 // @dev main component
 function Details() {
+  // get student detils
+  const [students,setStudents] = useState([])
+  useEffect(() => {
+    const RequestStudents = async () => {
+      try {
+        const res = await fetch(`https://fetlla.pythonanywhere.com/students/`, {
+          method: "GET",
+          headers: headers
+        })
+        setStudents(res)
+        console.log(students);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    RequestStudents()
+  },[])
   const { state } = useLocation();
   return (
     <div className="p-3">
