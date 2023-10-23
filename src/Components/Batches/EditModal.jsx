@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { headers } from "../Utils";
 /**
  * EditModal component for editing batch details.
  *
@@ -8,72 +10,63 @@ import React, { useState } from "react";
  * @param {function} props.onUpdate - Callback function to update batch data.
  */
 const EditModal = ({id, batchName, onClose, onUpdate }) => {
-  console.log(id);
     // State for form input fields
-  const [newMentor, setNewMentor] = useState("");
-  const [newTotalStudents, setNewTotalStudents] = useState("");
-  const [newIsCompleted, setNewIsCompleted] = useState(false);
-  const [newIncome, setNewIncome] = useState("");
+  const formvalue = {
+    batch_name: "",
+    faculty: "",
+    total_income: 0,
+    total_expense: 0
+  }
+  const [formData,setFormData] = useState(formvalue)
+  // @dev handle form inoputs on change
+  const handleChange = (e) => {
+    setFormData({...formData,[e.target.name]:e.target.value})
+  }
   /**
-   * Handle the update action for the batch.
-   * Constructs the updated batch object and calls the onUpdate and onClose functions.
+   * Handle the update action for the batch API call
    */
-  const handleUpdate = () => {
-    const updatedBatch = {
-      name: batchName,
-      mentor: newMentor,
-      totalStudents: newTotalStudents,
-      isCompleted: newIsCompleted,
-      income: newIncome,
-    };
-    console.log(updatedBatch);
-
-    onUpdate(updatedBatch); // Call the onUpdate function to update batch data
+  const handleUpdate = async() => {
+    console.log(formData);
+    try {
+      const res = await axios.put(`https://fetlla.pythonanywhere.com/batch/${id}`,formData,{
+        headers: headers
+      });
+      if(res.status === 200){
+        alert("Batch Sucessfully Updated")
+      } else {
+        alert("Error While Updating Batch try again")
+      }
+    } catch (error) {
+      alert(error.message)
+    }
     onClose(); // Close the modal
   };
+  const inputFields = [
+    { name: 'batch_name', label: 'Batch Name' },
+    { name: 'faculty', label: 'Faculty' },
+    { name: 'total_income', label: 'Total Income' },
+    { name: 'total_expense', label: 'Total Expense' },
+  ];
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-70">
       <div className="bg-white w-96 rounded-lg shadow-xl">
         <div className="p-12">
           <h2 className="text-xl font-semibold mb-4">Edit Batch: {batchName}</h2>
-          <div className="mb-4">
-            <label className="block text-gray-600">Mentor:</label>
-            <input
-              type="text"
-              className="input bg-gray-300"
-              value={newMentor}
-              onChange={(e) => setNewMentor(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-600">Total Students:</label>
-            <input
-              type="number"
-              className="input bg-gray-300"
-              value={newTotalStudents}
-              onChange={(e) => setNewTotalStudents(e.target.value)}
-            />
-          </div>
-          <div className="mb-4 flex items-center space-x-5">
-            <label className="block text-gray-600">Is Completed:</label>
-            <input
-              type="checkbox"
-              className="checkbox h-5 w-5 text-green-500"
-              checked={newIsCompleted}
-              onChange={() => setNewIsCompleted(!newIsCompleted)}
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-600">Income:</label>
-            <input
-              type="number"
-              className="input bg-slate-300"
-              value={newIncome}
-              onChange={(e) => setNewIncome(e.target.value)}
-            />
-          </div>
-          <div className="flex justify-end">
+          {/* input section */}
+          {inputFields.map((field) => (
+             <input
+             key={field.name} 
+             placeholder={field.label}
+             type="text" 
+             name={field.name}
+             // value={formData.batch_name}
+             onChange={handleChange}
+             className="p-2 bg-gray-200 rounded-lg input mt-2"
+             />
+          ))}
+
+          <div className="flex justify-end py-3">
             <button
               className="px-4 py-2 bg-green-500 text-white rounded-lg mr-2"
               onClick={handleUpdate}

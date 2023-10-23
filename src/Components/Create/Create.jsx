@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { headers } from "../Utils";
 
 function Create() {
   // Define state variables to store form input values
@@ -25,10 +26,7 @@ function Create() {
     try {
       setIsSubmit(!isSubmit)
       const response = await axios.post('https://fetlla.pythonanywhere.com/batch/', formData, {
-        headers: {
-          'accept': 'application/json',
-          'X-CSRFToken': 'qw9bLNRmxdAwYnWo53TtQxnBLbJsDWqVSmSMMGKgslVB9NuiPtlKLdG2WXU8BWuI',
-        }
+        headers: headers
       });
       console.log(response);
       navigate("/batches")

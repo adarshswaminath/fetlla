@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { batchDetils } from "../../constants";
-import { url, headers } from "../Utils";
+import { headers } from "../Utils";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 
@@ -30,10 +30,7 @@ const BatchDetils = ({ id,name, mentor, totalStudents, income }) => {
     try {
       const res = await fetch(`https://fetlla.pythonanywhere.com/batch/${id}/`, {
         method: "DELETE",
-        headers: {
-          'accept': 'application/json',
-          'X-CSRFToken': 'qw9bLNRmxdAwYnWo53TtQxnBLbJsDWqVSmSMMGKgslVB9NuiPtlKLdG2WXU8BWuI',
-        },
+        headers: headers
       })
       alert("Batch Sucess fully deleted")
       navigate("/batches")
