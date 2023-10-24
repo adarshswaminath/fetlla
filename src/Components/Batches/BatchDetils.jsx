@@ -65,17 +65,19 @@ export const BatchDetils = ({
         Student detils
       </h3>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {/* display the student detils */}
-        {students.map((student) => (
-          <StudentDetils
+        {/* display the student detils  */}
+        {students.map((student) => 
+          student.batch_name == name ? (
+            <StudentDetils
             key={student.id}
             id={student.id}
             name={student.student_name}
-            batch={student.batch}
+            batch={student.batch_name}
             fee={student.fee_paid}
             contactNumber={student.contact_number}
           />
-        ))}
+          ) : null
+        )}
       </div>
     </div>
   );
