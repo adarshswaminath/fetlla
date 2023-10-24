@@ -2,16 +2,33 @@ import { useNavigate } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
 import { headers } from "../Utils";
 import { StudentDetils } from "./StudentDetils";
+import { useState,useEffect } from "react";
 
 export const BatchDetils = ({
   id,
   name,
   mentor,
-  totalStudents,
+  num_students,
   income,
-  students,
 }) => {
   const navigate = useNavigate();
+   // get student detils
+   const [students,setStudents] = useState([])
+   useEffect(() => {
+     const RequestStudents = async () => {
+       try {
+         const res = await fetch(`https://fetlla.pythonanywhere.com/students/`, {
+           method: "GET",
+           headers: headers
+         })
+         const data = await res.json()
+         setStudents(data)
+       } catch (error) {
+         console.log(error.message);
+       }
+     }
+     RequestStudents()
+   },[])
   // delete the batch
   async function deleteBatch() {
     try {
@@ -28,6 +45,7 @@ export const BatchDetils = ({
       console.log(error.message);
     }
   }
+
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg p-6 mx-auto my-4 w-72">
@@ -48,14 +66,14 @@ export const BatchDetils = ({
       </h3>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {/* display the student detils */}
-        {students.map((value) => (
+        {students.map((student) => (
           <StudentDetils
-            key={value.id}
-            id={value.id}
-            name={value.student_name}
-            batch={value.batch}
-            fee={value.fee_paid}
-            contactNumber={value.contact_number}
+            key={student.id}
+            id={student.id}
+            name={student.student_name}
+            batch={student.batch}
+            fee={student.fee_paid}
+            contactNumber={student.contact_number}
           />
         ))}
       </div>

@@ -6,23 +6,6 @@ import { StudentDetils } from "./StudentDetils";
 import { BatchDetils } from "./BatchDetils";
 // @dev main component
 function Details() {
-  // get student detils
-  const [students,setStudents] = useState([])
-  useEffect(() => {
-    const RequestStudents = async () => {
-      try {
-        const res = await fetch(`https://fetlla.pythonanywhere.com/students/`, {
-          method: "GET",
-          headers: headers
-        })
-        const data = await res.json()
-        setStudents(data)
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    RequestStudents()
-  },[])
   const { state } = useLocation();
   return (
     <div className="p-3">
@@ -32,7 +15,6 @@ function Details() {
         mentor={state.mentor}
         num_students={state.num_students}
         income={state.income}
-        students={students}
       />
     </div>
   );

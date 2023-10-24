@@ -6,8 +6,8 @@ import { headers, url } from "../Utils";
 import apiCaller from "../apiCaller";
 
 // Card component for displaying batch details
-const Card = ({id, name, mentor, totalStudents, income }) => {
-  const detils = {id, name, mentor, totalStudents, income }
+const Card = ({id, name, mentor,num_students, income }) => {
+  const detils = {id, name, mentor, num_students, income }
   const navigate = useNavigate();
   const passClick = () => {
     navigate("/details", { 
@@ -15,7 +15,7 @@ const Card = ({id, name, mentor, totalStudents, income }) => {
         id:id,
         name:name,
         mentor:mentor,
-        totalStudents:totalStudents,
+        num_students:num_students,
         income: income
       } 
     });
@@ -24,7 +24,7 @@ const Card = ({id, name, mentor, totalStudents, income }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedBatch, setUpdatedBatch] = useState({
     mentor,
-    totalStudents,
+    num_students,
     income,
   });
   // Function to handle edit button click
@@ -46,7 +46,7 @@ const Card = ({id, name, mentor, totalStudents, income }) => {
       <div>
         <h2 className="text-xl font-semibold">Batch: {name}</h2>
         <p className="text-gray-500">Mentor: {mentor}</p>
-        <p className="text-gray-500">Students: {totalStudents}</p>
+        <p className="text-gray-500">Students: {num_students}</p>
         <div className="flex items-center space-x-5">
           <button onClick={handleEditClick}>
             <AiFillEdit className="text-2xl text-green-500" />
@@ -111,7 +111,7 @@ function Batches() {
               id={value.id}
               name={value.batch_name}
               mentor={value.faculty}
-              totalStudents={value.num_students}
+              num_students={value.num_students}
               income={value.total_income}
             />
           </div>
