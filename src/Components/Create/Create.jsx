@@ -11,7 +11,7 @@ function Create() {
   const navigate = useNavigate()
   const formValues = {
     batch_name: "",
-    total_students: 0,
+    num_students: 0,
     faculty: "",
     total_income: 0,
     total_expense: 0,
@@ -64,11 +64,11 @@ function Create() {
             </label>
             <input
               type="text"
-              id="total_students"
-              name="total_Students"
+              id="num_students"
+              name="num_students"
               placeholder="Total Number of students"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              value={formData.total_students}
+              value={formData.num_students}
               onChange={handleChange}
             />
           </div>

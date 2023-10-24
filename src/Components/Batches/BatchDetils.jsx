@@ -39,7 +39,7 @@ export const BatchDetils = ({
         </div>
         <p className="mt-2 text-gray-600">Mentor: {mentor}</p>
 
-        <p className="mt-2 text-gray-600">Total Students: {totalStudents}</p>
+        <p className="mt-2 text-gray-600">Total Students: {num_students}</p>
         <p className="mt-2 text-gray-600">Total Income: {income}</p>
       </div>
 

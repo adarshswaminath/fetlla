@@ -30,7 +30,7 @@ function Details() {
         id={state.id}
         name={state.name}
         mentor={state.mentor}
-        totalStudents={state.totalStudents}
+        num_students={state.num_students}
         income={state.income}
         students={students}
       />
