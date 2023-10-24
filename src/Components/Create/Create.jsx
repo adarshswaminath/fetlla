@@ -11,6 +11,7 @@ function Create() {
   const navigate = useNavigate()
   const formValues = {
     batch_name: "",
+    total_students: 0,
     faculty: "",
     total_income: 0,
     total_expense: 0,
@@ -23,6 +24,7 @@ function Create() {
   }
   // function for submit form POST request
   const handleSubmitForm = async () => {
+    console.log(formData);
     try {
       setIsSubmit(!isSubmit)
       const response = await axios.post('https://fetlla.pythonanywhere.com/batch/', formData, {
@@ -53,6 +55,20 @@ function Create() {
               placeholder="Enter Batch Name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
               value={formData.batch_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="mentorName" className="block text-gray-700">
+              Total Students
+            </label>
+            <input
+              type="text"
+              id="total_students"
+              name="total_Students"
+              placeholder="Total Number of students"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              value={formData.total_students}
               onChange={handleChange}
             />
           </div>
@@ -103,7 +119,7 @@ function Create() {
           </div>
           <button
             type="submit"
-            className={`${isSubmit ? "bg-green-500" : "bg-green-300"} w-full text-white py-2 px-4 rounded-lg hover:bg-green-600`}
+            className={`${isSubmit ? "bg-green-500" : "bg-green-300"} w-full text-white py-2 px-4 rounded-lg`}
             onClick={handleSubmitForm}
           >
             {isSubmit ? "Create" : "Creating...."}
