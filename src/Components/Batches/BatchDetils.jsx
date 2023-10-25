@@ -3,6 +3,7 @@ import { AiFillDelete,AiFillPlusCircle } from "react-icons/ai";
 import { headers } from "../Utils";
 import { StudentDetils } from "./StudentDetils";
 import { useState,useEffect } from "react";
+import AddStudentModal from "./AddStudentModal";
 
 export const BatchDetils = ({
   id,
@@ -45,7 +46,20 @@ export const BatchDetils = ({
       console.log(error.message);
     }
   }
-
+  const [showModal,isModalOpen] = useState(false)
+  // modal Component
+  function AddStudentModal() {
+    return (
+      <div className='fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-70'>
+          <div className="flex flex-col items-center justify-center h-96 w-96 bg-white rounded-lg">
+            <h2 className="text-xl">{name}</h2>
+              <button className='px-5 py-2 bg-black text-white'
+                  onClick={() => isModalOpen(!showModal)}
+              >Close</button>
+          </div>
+      </div>
+    )
+  }
   return (
     <div>
       <div className="bg-white rounded-lg shadow-lg p-6 mx-auto my-4 w-72">
@@ -65,10 +79,13 @@ export const BatchDetils = ({
       <h3 className="text-center text-2xl mt-3 font-semibold underline decoration-green-500">
         Student detils
       </h3>
-      <button className="bg-green-500 text-white rounded-lg mt-3">
+      <button className="bg-green-500 text-white rounded-lg mt-3" onClick={() => isModalOpen(!showModal)}>
         <AiFillPlusCircle className="text-2xl"/>
       </button>
       </div>
+      {showModal ? (
+        <AddStudentModal/>
+      ) : (null)}
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {/* display the student detils  */}
         {students.map((student) => 
