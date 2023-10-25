@@ -2,6 +2,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { BsFillPenFill } from "react-icons/bs";
 import { headers } from "../Utils";
 import { useState } from "react";
+import axios from "axios";
 
 export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
   const [showModal, isShowModal] = useState(false);
@@ -32,16 +33,29 @@ export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
   ];
 
   const ModalToEditStudents = () => {
+   
     const studentUpdateInfo = {
       student_name: "",
       fee_paid: 0,
-      contact_number: 0,
+      contact_number: "",
     };
     const handleInputChange = (e) => {
       setStudentInfo({ ...studentinfo, [e.target.name]: e.target.value });
     };
     const [studentinfo, setStudentInfo] = useState(studentUpdateInfo);
-    console.log(studentinfo);
+     // function to update the detils 
+     const updateStudentDetails = async(e) => {
+      console.log(studentinfo);
+      try {
+        const response = await axios.put(
+          `https://fetlla.pythonanywhere.com/students/${id}`,
+          studentinfo
+        )
+        alert(response.ok)
+      } catch (error) {
+        alert(error.message)
+      }
+    }
     return (
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-opacity-70 shadow-lg p-3">
         <div className="h-96 w-96 bg-gray-300 rounded-lg shadow-lg px-3">
@@ -50,40 +64,29 @@ export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
           </h1>
 
           {inputs.map((value) => (
-            <div class="mb-4">
+            <div className="mb-4" key={value.name}>
               <label
-                for={value.name}
+                htmlFor="input"
                 className="block text-gray-700 text-sm font-bold mb-2"
               >
                 {value.value}
               </label>
               <input
                 type="text"
-                id={value.name}
+                id="input"
                 placeholder={value.placeholder}
                 name={value.name}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline"
               />
             </div>
-            // <div key={value.name} className="flex flex-col">
-            //   <div>
-            //   <label htmlFor={value.name}>{value.value}</label>
-            //   <input
-            //     id={value.name}
-            //     onChange={handleInputChange}
-            //     name={value.name}
-            //     placeholder={value.placeholder}
-            //     type="text"
-            //     className="p-2 bg-gray-200 border rounded-lg focus:outline-none"
-            //   />
-            //   </div>
-            // </div>
+            
           ))}
 
           <div className="flex items-center gap-3 justify-center p-2">
             <button
               className="px-3 py-1.5 bg-green-500 text-white rounded-lg"
-              onClick={() => isShowModal(false)}
+              onClick={updateStudentDetails}
             >
               Update
             </button>
