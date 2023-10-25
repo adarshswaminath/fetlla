@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete,AiFillPlusCircle } from "react-icons/ai";
 import { headers } from "../Utils";
 import { StudentDetils } from "./StudentDetils";
 import { useState,useEffect } from "react";
@@ -61,9 +61,14 @@ export const BatchDetils = ({
         <p className="mt-2 text-gray-600">Total Income: {income}</p>
       </div>
 
+      <div className="flex items-center gap-5">
       <h3 className="text-center text-2xl mt-3 font-semibold underline decoration-green-500">
         Student detils
       </h3>
+      <button className="bg-green-500 text-white rounded-lg mt-3">
+        <AiFillPlusCircle className="text-2xl"/>
+      </button>
+      </div>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {/* display the student detils  */}
         {students.map((student) => 
