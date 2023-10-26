@@ -33,55 +33,67 @@ export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
   ];
 
   const ModalToEditStudents = () => {
-   
-    const studentUpdateInfo = {
-      student_name: "",
-      fee_paid: 0,
-      contact_number: "",
-    };
-    const handleInputChange = (e) => {
-      setStudentInfo({ ...studentinfo, [e.target.name]: e.target.value });
-    };
-    const [studentinfo, setStudentInfo] = useState(studentUpdateInfo);
+      const [student_name,setStudentName] = useState("")
+      const [fee_paid,setFeePaid] = useState(0)
+      const [contact_number,setContactNumber] = useState("")
      // function to update the detils 
      const updateStudentDetails = async(e) => {
-      console.log(studentinfo);
+      const formValues = {
+        student_name: student_name,
+        contact_number: contact_number,
+        fee_paid: fee_paid
+      }
       try {
+        console.log(formValues);
         const response = await axios.put(
           `https://fetlla.pythonanywhere.com/students/${id}`,
-          studentinfo
+          formValues,
+          {
+          headers
+          }
         )
-        alert(response.ok)
+        alert("Update sucess")
       } catch (error) {
         alert(error.message)
       }
     }
+    const inputStyle = "w-full px-3 py-2 leading-tight text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline"
     return (
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-opacity-70 shadow-lg p-3">
         <div className="h-96 w-96 bg-gray-300 rounded-lg shadow-lg px-3">
           <h1 className="text-center text-xl m-2 font-bold py-4">
             Edit {name} Detils
           </h1>
-
-          {inputs.map((value) => (
-            <div className="mb-4" key={value.name}>
-              <label
-                htmlFor="input"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                {value.value}
-              </label>
+          
+          <div className="mb-4">
               <input
                 type="text"
                 id="input"
-                placeholder={value.placeholder}
-                name={value.name}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline"
+                placeholder={name}
+                onChange={(e) => setStudentName(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="input"
+                placeholder={fee}
+                onChange={(e) => setFeePaid(e.target.value)}
+                className={inputStyle}
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="input"
+                placeholder={contactNumber}
+                onChange={(e) => setContactNumber(e.target.value)}
+                className={inputStyle}
               />
             </div>
             
-          ))}
+      
 
           <div className="flex items-center gap-3 justify-center p-2">
             <button
