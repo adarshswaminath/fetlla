@@ -54,7 +54,7 @@ export const BatchDetils = ({ id, name, mentor, num_students, income }) => {
         contact_number: contact_number,
         fee_paid: fee_paid,
       };
-      console.log(typeof formValues);
+      console.log(formValues);
       try {
         const res = await axios.post(
           "https://fetlla.pythonanywhere.com/students/",
