@@ -16,7 +16,12 @@ export const sideBarList = [
     path: "/mentors",
   },
 ];
+export const addStudentInputValues = [
+  {id:1,name:"student_name",placeholder: "Student Name",value: "student_name"},
+  {id:2,name:"fee_paid",placeholder: "Amount Paid",value: "fee_paid"},
+  {id:3,name:"contact_number",placeholder: "Contact Number",value: "contact_number"},
 
+]
 export const batchDetils = [
   {
     name: "B1",
