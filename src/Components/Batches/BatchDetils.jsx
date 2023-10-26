@@ -50,9 +50,11 @@ export const BatchDetils = ({ id, name, mentor, num_students, income }) => {
     // make the post request to create the students
     const handleRequest = async () => {
       const formValues = {
+        batch_name: name,
         student_name: student_name,
         contact_number: contact_number,
         fee_paid: fee_paid,
+        batch:id
       };
       console.log(formValues);
       try {
