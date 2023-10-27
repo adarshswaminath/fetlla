@@ -63,6 +63,7 @@ export const BatchDetils = ({ id, name, mentor, num_students, income }) => {
           formValues
         );
         alert("Student created sucess");
+        window.location.reload(false)
       } catch (error) {
         alert("Student creation failed");
       }

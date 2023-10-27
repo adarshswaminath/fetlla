@@ -21,6 +21,7 @@ export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
         }
       );
       alert(`${name}  Sucessfully deleted`);
+      window.location.reload(false)
     } catch (error) {
       console.log(error.message);
     }
