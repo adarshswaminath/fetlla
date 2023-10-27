@@ -29,11 +29,11 @@ const EditModal = ({id, batchName, onClose, onUpdate }) => {
   const handleUpdate = async() => {
     console.log(formData);
     let url = `https://fetlla.pythonanywhere.com/batch/${id}/`
-    console.log(url);
     try {
       const res = await axios.put(url,formData);
       if(res.status === 200){
         alert("Batch Sucessfully Updated")
+        window.location.reload(false)
       } else {
         alert("Error While Updating Batch try again")
       }
