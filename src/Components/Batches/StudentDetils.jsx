@@ -43,16 +43,12 @@ export const StudentDetils = ({ id, name, batch, fee, contactNumber }) => {
         contact_number: contact_number,
         fee_paid: fee_paid
       }
+      let url =`https://fetlla.pythonanywhere.com/students/${id}/`
       try {
         console.log(formValues);
-        const response = await axios.put(
-          `https://fetlla.pythonanywhere.com/students/${id}`,
-          formValues,
-          {
-          headers
-          }
-        )
+        const response = await axios.put(url,formValues,{headers})
         alert("Update sucess")
+        window.location.reload(false)
       } catch (error) {
         alert(error.message)
       }
