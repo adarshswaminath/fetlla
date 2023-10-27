@@ -13,6 +13,7 @@ const EditModal = ({id, batchName, onClose, onUpdate }) => {
     // State for form input fields
   const formvalue = {
     batch_name: "",
+    num_students: 0,
     faculty: "",
     total_income: 0,
     total_expense: 0
@@ -27,10 +28,10 @@ const EditModal = ({id, batchName, onClose, onUpdate }) => {
    */
   const handleUpdate = async() => {
     console.log(formData);
+    let url = `https://fetlla.pythonanywhere.com/batch/${id}/`
+    console.log(url);
     try {
-      const res = await axios.put(`https://fetlla.pythonanywhere.com/batch/${id}`,formData,{
-        headers: headers
-      });
+      const res = await axios.put(url,formData);
       if(res.status === 200){
         alert("Batch Sucessfully Updated")
       } else {
@@ -43,11 +44,11 @@ const EditModal = ({id, batchName, onClose, onUpdate }) => {
   };
   const inputFields = [
     { name: 'batch_name', label: 'Batch Name' },
+    {name: 'num_students',label: "Number Of Students"},
     { name: 'faculty', label: 'Faculty' },
     { name: 'total_income', label: 'Total Income' },
     { name: 'total_expense', label: 'Total Expense' },
   ];
-
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-70">
       <div className="bg-white w-96 rounded-lg shadow-xl">
