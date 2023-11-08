@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import {HiMenuAlt2} from "react-icons/hi"
 import { sideBarList } from "../../constants";
@@ -7,6 +8,8 @@ import Batches from "../Batches/Batches";
 import Create from "../Create/Create";
 import Mentors from "../Mentors/Mentors";
 import Details from "../Batches/Details"
+
+
 
 
 function MainSection() {

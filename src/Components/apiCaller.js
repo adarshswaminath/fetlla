@@ -1,6 +1,7 @@
 const apiCaller = async (url,method) => {
     try {
-      const res = await fetch(`https://fetlla.pythonanywhere.com/${url}/`, {
+      let payload = `https://fetlla.pythonanywhere.com/${url}/`
+      const res = await fetch(payload, {
         method: method,
         headers: {
           'accept': 'application/json',
