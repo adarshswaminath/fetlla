@@ -6,6 +6,7 @@ function Home() {
   const [income,setTotalIncome] = useState(0)
   const [students,setTotalStudents] = useState(0)
   const [batches,setTotalBatches] = useState(0)
+  const [expense,setTotalExpense] = useState(0)
 
   // api call
   useEffect(() => {
@@ -30,12 +31,20 @@ function Home() {
     },0)
     setTotalStudents(students)
   },[data])
+  // set total expense
+  useEffect(() => {
+    const expenses = data.reduce((total,batch) => {
+      return total + parseFloat(batch.total_expense)
+    },0)
+    setTotalExpense(expenses)
+  })
   return (
     <>
       <HomeBody 
         income={income}
         students={students}
         batches={batches}
+        expense={expense}
       />
     </>
   );

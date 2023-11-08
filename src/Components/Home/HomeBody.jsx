@@ -6,7 +6,7 @@ import { PiStudentBold } from "react-icons/pi";
 import { MdOutlineBatchPrediction } from "react-icons/md";
 import { AiOutlineTeam } from "react-icons/ai";
 
-function HomeBody({income,students,batches}) {
+function HomeBody({income,students,batches,expense}) {
   return (
     <div>
         <div className="p-3">
@@ -32,15 +32,15 @@ function HomeBody({income,students,batches}) {
         />
         <Card
           bg="bg-purple-500"
-          icon={<MdOutlineBatchPrediction />}
+          icon={<AiOutlineTeam/>}
           count={batches}
           title="Batches"
         />
         <Card
           bg="bg-orange-500"
-          icon={<AiOutlineTeam />}
-          count="30"
-          title="Members"
+          icon={<MdOutlineBatchPrediction />}
+          count={expense}
+          title="Expense"
         />
       </div>
       {/* two card section */}
