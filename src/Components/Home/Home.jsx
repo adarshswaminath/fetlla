@@ -38,6 +38,11 @@ function Home() {
     },0)
     setTotalExpense(expenses)
   })
+
+  const batchExpense = data.map(batch => ({
+    batch_name: batch.batch_name,
+    total_income: batch.total_income,
+  }))
   return (
     <>
       <HomeBody 
@@ -45,6 +50,7 @@ function Home() {
         students={students}
         batches={batches}
         expense={expense}
+        batchExpense={batchExpense}
       />
     </>
   );

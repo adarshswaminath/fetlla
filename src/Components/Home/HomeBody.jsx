@@ -5,21 +5,17 @@ import { GiTeacher } from "react-icons/gi";
 import { PiStudentBold } from "react-icons/pi";
 import { MdOutlineBatchPrediction } from "react-icons/md";
 import { AiOutlineTeam } from "react-icons/ai";
+import Graph from "./Graph";
 
-function HomeBody({income,students,batches,expense}) {
+function HomeBody({income,students,batches,expense,batchExpense}) {
+  console.log(batchExpense);
   return (
     <div>
         <div className="p-3">
       {/* hero section */}
-      <div className="bg-green-500 rounded-lg shadow-lg p-12">
-        <h3 className="text-xl font-bold text-white">
-          Fetlla Community Management
-        </h3>
-        <div className="flex justify-start p-2">
-          <button className="bg-white text-green-500 btn hover:bg-gray-200">
-            Connect
-          </button>
-        </div>
+      <div className="rounded-lg shadow-lg p-2">
+        <h2 className="font-bold text-blue-500 mb-2">Batches & Expenses</h2>
+        <Graph batchExpense={batchExpense}/>
       </div>
       {/* cards section */}
       <div className="mt-4 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2">
